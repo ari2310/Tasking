@@ -1,0 +1,10 @@
+{{ define "Show" }}
+  {{ template "Header" }}
+    {{ template "Menu"  }}
+    <h2> Register {{ .Id }} </h2>
+      <p>Name: {{ .Task_employee }}</p>
+      <p>City:  {{ .Id_employee }}</p><br /> 
+      <p>City:  {{ .Date }}</p><br /> 
+      <a href="/edit?id={{ .Id }}">Edit</a></p>
+  {{ template "Footer" }}
+{{ end }}

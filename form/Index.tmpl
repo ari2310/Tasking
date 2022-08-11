@@ -1,0 +1,33 @@
+{{ define "Index" }}
+  {{ template "Header" }}
+    <div class="container mt-5">
+      {{ template "Menu"  }}
+      <table class="table mt-5">
+        <thead>
+        <tr>
+          <td>Task</td>
+          <td>Employee</td>
+          <td>Date</td>
+          <td>Acion</td>
+        </tr>
+        </thead>
+        <tbody>
+      {{ range . }}
+        <tr>
+          <td>{{ .Task_employee }} </td>
+          <td>{{ .Id_employee }} </td> 
+          <td>{{ .Date }} </td> 
+          <td>
+            <a class="btn btn-success" href="/status?id={{ .Id }}">{{if .Status}}Mark as done{{else}}Done{{end}}</a>
+            {{if .Status}}
+              <a class="btn btn-warning" href="/edit?id={{ .Id }}">Edit</a>
+            {{end}}
+            <a class="btn btn-danger" href="/delete?id={{ .Id }}">Delete</a>
+          </td>
+        </tr>
+      {{ end }}
+        </tbody>
+      </table>
+    </div>
+  {{ template "Footer" }}
+{{ end }}
